@@ -121,7 +121,8 @@ public class Driver {
                 int length = ScannerInput.readNextInt("Enter the length of this song in seconds");
                 char isVerified = ScannerInput.readNextChar("Is this song verified?");
                 boolean verified = Utilities.YNtoBoolean(isVerified);
-                if (playlist.updateSong(indexToUpdate,name,songId,artistName,verified,length)){
+                Song song = new Song(songId,name,artistName,verified,length);
+                if (playlist.updateSong(indexToUpdate,song)){
                     System.out.println("Update Successfully");
                 }
                 else {

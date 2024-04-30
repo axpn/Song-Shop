@@ -76,9 +76,6 @@ public class Playlist {
     public void addLike() {
     }
 
-    public boolean updateSong(int i, Song updatedSong) {
-    }
-
     public Collection<Object> listSongs() {
     }
 
@@ -120,12 +117,11 @@ public class Playlist {
             if (foundSong != null) {
                 foundSong.setName(song.getName());
                 foundSong.setSongId(song.getSongId());
-                foundSong.setArtist(song.getArtistName());
-                foundSong.setArtist(song.isVerified());
+                foundSong.setArtist(song.getArtist());
                 foundSong.setLength(song.getLength());
-                return true;
             }
         }
+        return true;
     }
 
     Song findSong(int indexA) {
