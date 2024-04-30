@@ -17,8 +17,7 @@ public class Playlist {
         songs = new ArrayList<Song>();
     }
 
-    public Playlist(String noSongsHere, String noSongsAtAll) {
-    }
+
 
     public ArrayList<Song> getSongs(){
         return songs;
@@ -43,9 +42,57 @@ public class Playlist {
     //TODO Add the constructor, Playlist(String, String), that adheres to the above validation rules.
     //     The order of the fields in the parameter list is the same as the order of fields above i.e. playlistName is
     //     first, then description.
+    public Playlist(String playlistName, String description) {
+        if (playlistName != null && !playlistName.isEmpty() && description != null) {
+            this.playlistName = playlistName;
+            this.description = description;
+            this.songs = new ArrayList<>();
+        }
+    }
+
 
     //TODO Add a getter and setter for each field, that adheres to the above validation rules
+    public String getPlaylistName() {
+    }
 
+    public String getDescription() {
+    }
+
+    public void setPlaylistName(String s) {
+    }
+
+    public void setSongs(ArrayList<Song> songs1) {
+    }
+
+    public void setDescription(String s) {
+    }
+
+    public int getLikes() {
+    }
+
+    public void setLikes(int i) {
+    }
+
+    public void addLike() {
+    }
+
+    public boolean updateSong(int i, Song updatedSong) {
+    }
+
+    public Collection<Object> listSongs() {
+    }
+
+    public Collection<Object> listSongsFromVerifiedArtists() {
+    }
+
+    public Collection<Object> listSongsLongerThan(int i) {
+    }
+
+    public Collection<Object> listOfSongsOfArtist(String taylorSwift) {
+    }
+
+    public int getAverageSongLength() {
+    }
     //-------------------------------------
     //  ARRAYLIST CRUD
     //-------------------------------------
@@ -64,16 +111,21 @@ public class Playlist {
     //     The other parameter is a  Song object - that is being updated
     //     i.e. it holds the new values of  id, name, length, and artist.
     //     If the update was successful, then return true.
-    public boolean updateSong(int indexToUpdate, String name, int songId, Artist artistName, int length){
-        Song foundSong = findSong(indexToUpdate);
-        if (foundSong != null){
-            foundSong.setName(name);
-            foundSong.setSongId(songId);
-            foundSong.setArtist(artistName);
-            foundSong.setLength(length);
-            return true;
+    public boolean updateSong(int indexToUpdate,Song song){
+        if (indexToUpdate <0 || indexToUpdate >= songs.size()){
+            return false;
         }
-        return false;
+        else {
+            Song foundSong = findSong(indexToUpdate);
+            if (foundSong != null) {
+                foundSong.setName(song.getName());
+                foundSong.setSongId(song.getSongId());
+                foundSong.setArtist(song.getArtistName());
+                foundSong.setArtist(song.isVerified());
+                foundSong.setLength(song.getLength());
+                return true;
+            }
+        }
     }
 
     Song findSong(int indexA) {
@@ -134,17 +186,13 @@ public class Playlist {
     //     If the index is valid, retrieve the object and:
     //      set the verified status to the parameter value
     public Song updateVerifiedStatus(int indexToUpdateVerified,boolean verified){
-        Song whichFigure = figure(indexToUpdateVerified);
-        if (whichFigure != null){
-            whichFigure.setVerified();
+        if (indexToUpdateVerified < 0 || indexToUpdateVerified >= songs.size()){
+            return null;
+        }
+        else {
+            Song song = playlist
         }
 
-    }
-    private Song figure(int indexB){
-        if (isValidIndex(indexB)){
-            return songs.get(indexB);
-        }
-        return null;
     }
 
 
@@ -194,50 +242,11 @@ public class Playlist {
         }
     }
 
-    public String getPlaylistName() {
-    }
 
-    public String getDescription() {
-    }
-
-    public void setPlaylistName(String s) {
-    }
-
-    public void setSongs(ArrayList<Song> songs1) {
-    }
-
-    public void setDescription(String s) {
-    }
-
-    public int getLikes() {
-    }
-
-    public void setLikes(int i) {
-    }
-
-    public void addLike() {
-    }
-
-    public boolean updateSong(int i, Song updatedSong) {
-    }
-
-    public Collection<Object> listSongs() {
-    }
-
-    public Collection<Object> listSongsFromVerifiedArtists() {
-    }
-
-    public Collection<Object> listSongsLongerThan(int i) {
-    }
-
-    public Collection<Object> listOfSongsOfArtist(String taylorSwift) {
-    }
-
-    public int getAverageSongLength() {
-    }
 
     public int numSongs() {
     }
+
     //TODO Add a method, listSongsFromVerifiedArtists().  The return type is String.
     //     This method returns a list of the songs stored in the array list whose song artist is verified.
     //     Each matching song should be on a new line and should be preceded by the index number e.g.

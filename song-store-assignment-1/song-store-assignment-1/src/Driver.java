@@ -1,8 +1,8 @@
 import controllers.Playlist;
+import models.Artist;
 import models.Song;
 import utils.ScannerInput;
-
-import javax.swing.text.Utilities;
+import utils.Utilities;
 
 public class Driver {
     //TODO Define an object of the Playlist here.  It should be declared private.
@@ -88,12 +88,16 @@ public class Driver {
     //------------------------------------
     // Private methods for CRUD on Song
     //------------------------------------
+    //method addSong which including songName,songId,artistName,length,verified status
     private void addSong(){
         String name = ScannerInput.readNextLine("Enter the Song Name: ");
         int songId = ScannerInput.readNextInt("Enter the Song Id: ");
         String artistName = ScannerInput.readNextLine("Enter the Song's Artist: ");
         int length = ScannerInput.readNextInt("Enter the length of this song in seconds: ");
-        boolean isAdded =  playlist.addSong(new Song(name,songId,artistName,verified,length));
+        //the method of updating verified status is referred to the code of ShopV6.0
+        char isVerified = ScannerInput.readNextChar("Is this song verified?");
+        boolean verified = Utilities.YNtoBoolean(isVerified);
+        boolean isAdded =  playlist.addSong(new Song(songId,name,artistName,verified,length));
         if (isAdded){
             System.out.println("Song Added Successfully");
         }
@@ -101,6 +105,7 @@ public class Driver {
             System.out.println("No Song Added");
         }
     }
+    //method listAllSongs which can list all songs the user had typed in in the dialog
     private void listAllSongs(){
         System.out.println("List of Songs are: ");
         System.out.println(playlist.listAllSongs());
@@ -114,7 +119,9 @@ public class Driver {
                 int songId = ScannerInput.readNextInt("Enter the Song Id: ");
                 String artistName = ScannerInput.readNextLine("Enter the Artist Name: ");
                 int length = ScannerInput.readNextInt("Enter the length of this song in seconds");
-                if (playlist.updateSong(indexToUpdate,name,songId,artistName,length)){
+                char isVerified = ScannerInput.readNextChar("Is this song verified?");
+                boolean verified = Utilities.YNtoBoolean(isVerified);
+                if (playlist.updateSong(indexToUpdate,name,songId,artistName,verified,length)){
                     System.out.println("Update Successfully");
                 }
                 else {
@@ -139,13 +146,10 @@ public class Driver {
             }
         }
     }
-    private void setVerifiedStatus(){
 
-    }
     //-----------------------------------------------------------------
     //  Private methods for Search facility
     //-----------------------------------------------------------------
-    private void findSongById(){}
 
 
     //-----------------------------
