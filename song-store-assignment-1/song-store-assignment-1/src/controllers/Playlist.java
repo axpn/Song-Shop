@@ -132,12 +132,7 @@ public class Playlist {
         return true;
     }
 
-    Song findSong(int indexA) {
-        if (isValidIndex(indexA)) {
-            return songs.get(indexA);
-        }
-        return null;
-    }
+
 
 
     //TODO Add a method, deleteSong(int).  The return type is Song.
@@ -267,20 +262,30 @@ public class Playlist {
     //TODO Add a method getTotalPlayListLength() which returns a integer value of
     //     the total time (in seconds) if the there are songs in the playlist
     //     -1 if playlist is empty.
-
+    public double totallength() {
+        if (!songs.isEmpty()) {
+            double totallenth = 0;
+            for (Song product : songs) {
+                totallenth += product.getLength();
+            }
+            return totallenth;
+        } else {
+            return -1;
+        }
+    }
 
     //TODO Add a method getAverageSongLength() which returns a integer value of
     //      the average length of songs on the playlist
     //     -1 if playlist is empty.
 
 
-    public double averageProductPrice() {
+    public double averageSonglength() {
         if (!songs.isEmpty()) {
-            double totalPrice = 0;
-            for (Song product : songs) {
-                totalPrice += product.getLength();
+            double totallength = 0;
+            for (int i =0;i<songs.size();i++) {
+                totallength += songs.get(i).getLength();
             }
-            return Utilities.toTwoDecimalPlaces(totalPrice / songs.size());
+            return Utilities.toTwoDecimalPlaces(totallength / songs.size());
         } else {
             return -1;
         }
@@ -332,6 +337,7 @@ public class Playlist {
 
 
     public int numSongs() {
+        return numSongs();
     }
 
     //TODO Add a method, listSongsFromVerifiedArtists().  The return type is String.
@@ -404,6 +410,12 @@ public class Playlist {
     //TODO Add a method, findSong(int).  The return type is Song.
     //    This method returns the song stored at the index that was passed as a parameter.
     //    However, if the index is not valid, null is returned.
+    Song findSong(int indexA) {
+        if (isValidIndex(indexA)) {
+            return songs.get(indexA);
+        }
+        return null;
+    }
 
 
     //TODO Add a method, findSongByCode(int).  The return type is Song.
@@ -426,6 +438,12 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs".
     //    If there are no songs whose name contains the supplied string, the return string should
     //    have "No songs found".
+    public String searchSongsByName(String name){
+        String aaa ="";
+        aaa = ""+findsongbyname(name).getName()+"    "+findsongbyname(name).getArtistName()+"        "+findsongbyname(name).getSongId();
+        return aaa;
+
+    }
 
 
     //TODO Add a method, searchSongsByArtistName(String).  The return type is String.
