@@ -22,5 +22,8 @@ public class Utilities {
     public static boolean YNtoBoolean(char charToSetVerified){
         return ((charToSetVerified == 'y') || (charToSetVerified == 'Y'));
     }
+    public static double toTwoDecimalPlaces(double number){
+        return (int) (number * 100 ) / 100.0;
+    }
 }
 

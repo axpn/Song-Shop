@@ -11,6 +11,8 @@ import utils.Utilities;
 public class Driver {
     //TODO Define an object of the Playlist here.  It should be declared private.
     private Playlist playlist = new Playlist();
+
+
     public static void main(String[] args) {
         new Driver();
     }
@@ -70,16 +72,17 @@ public class Driver {
                 case 3 -> updateSong();
                 case 4 -> deleteSong();
                 case 5 -> setVerifiedStatus();
-                case 6 -> findSongById();
-                case 7 -> searchSongByName();
-                case 8 -> addLikeToPlaylist();
-                case 9 -> listSongsByVerifiedArtists();
-                case 10 -> listSongsOverGivenLength();
-                case 11 -> listOfSongsOfGivenArtist();
-                case 12 -> printAverageLength();
-                case 13 -> printLengthOfPlaylist();
-                case 14 -> save();
-                case 15 -> load();
+                case 6 -> findSongById();//done
+                case 7 -> searchSongByName();//done
+                case 8 -> addLikeToPlaylist();//done
+                case 9 -> listSongsByVerifiedArtists();//done
+                case 10 -> listbyverifiedsongs();//done
+                case 11 -> listSongsOverGivenLength();//done
+                case 12 -> listOfSongsOfGivenArtist();
+                case 13 -> printAverageLength();
+                case 14 -> printLengthOfPlaylist();
+                case 15 -> save();
+                case 16 -> load();
                 default -> System.out.println("Invalid option entered: " + option);
             }
             ScannerInput.readNextLine("\nPress enter key to continue...");
@@ -168,11 +171,55 @@ public class Driver {
     //-----------------------------------------------------------------
     //  Private methods for Search facility
     //-----------------------------------------------------------------
+    private void findSongById(){
+        System.out.println("find a song by id");
+
+        if (playlist.numberOfSongs()>0){
+            int id = ScannerInput.readNextInt("Please enter the id of the song you choose");
+            System.out.println(playlist.findsongbyid(id));
+
+
+        }else {
+            System.out.println("no songs");
+        }
+    }//find a song by id by byp
+    private void searchSongByName(){
+        System.out.println("find a song by name");
+        if (playlist.numberOfSongs()>0){
+            String name =ScannerInput.readNextLine("Please enter the name of the song you choose");
+            System.out.println(playlist.findsongbyname(name));
+
+        }else {
+            System.out.println("no songs");
+        }
+    }//find a song by name by byp
 
 
     //-----------------------------
     //  Private methods for Reports
     // ----------------------------
+    private void addLikeToPlaylist(){
+        playlist.addLike();
+
+    }//add a like to ur ass
+
+    private  void  listSongsByVerifiedArtists(){
+        System.out.println("List of Songs are:");
+        System.out.println(playlist.listbyverifiedartist());
+
+    }// done by byp
+    private void listbyverifiedsongs(){
+        System.out.println("List of Songs are:");
+        System.out.println(playlist.listbyverifiedsongs());
+    }//add to have more score
+
+    private void listSongsOverGivenLength(){
+        System.out.println("list songs over a length");
+        double lenth = ScannerInput.readNextDouble("Please enter length");
+        System.out.println("List of Songs are:");
+        System.out.println(playlist.listovergivenlength(lenth));
+    }//done by byp
+
 
 
     //---------------------------------
