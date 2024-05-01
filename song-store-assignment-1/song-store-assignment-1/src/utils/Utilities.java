@@ -13,12 +13,14 @@ public class Utilities {
         }
     }
     //from the flash of Lab 5.1
+    //can make the job of limit a value in a range more easily
     public static boolean validRange(int numberToCheck, int min, int max) {
         return ((numberToCheck >= min) && (numberToCheck <= max));
     }
-    //
-    public static boolean YNtoBoolean(char charToConvert){
-        return ((charToConvert == 'y') || (charToConvert == 'Y'));
+    //referred to the flash of Lab 5.1
+    //can make the job of judge the song's verifiedStatus more easily
+    public static boolean YNtoBoolean(char charToSetVerified){
+        return ((charToSetVerified == 'y') || (charToSetVerified == 'Y'));
     }
 }
 

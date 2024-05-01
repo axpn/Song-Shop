@@ -2,23 +2,20 @@ package controllers;
 
 import models.Artist;
 import models.Song;
+import utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Playlist {
-    private String playlistName; // valid length is 20 - default to the first 20 characters of input.
+    private String playlistName = ""; // valid length is 20 - default to the first 20 characters of input.
     private ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
-    private String description; // valid length is 30 - default to the first 30 characters of input.
+    private String description = ""; // valid length is 30 - default to the first 30 characters of input.
 
     private int likes = 0;
+
+
     //TODO Declare an array list of songs(songs). This should be empty at the start and does not need to be the constructor.
-    public Playlist() {
-        songs = new ArrayList<Song>();
-    }
-
-
-
     public ArrayList<Song> getSongs(){
         return songs;
     }
@@ -27,44 +24,58 @@ public class Playlist {
     //     When creating the playlist, truncate the name to 20 characters.
     //     When updating an existing playlist, only update the name if it is 20 characters or less.
 
-
-
-    //TODO The playlist description (String description) of the playlist in the system is entered by the user.
+        //TODO The playlist description (String description) of the playlist in the system is entered by the user.
     //     Default value is "".
     //     When creating the playlist, truncate the description to 30 characters.
     //     When updating an existing playlist, only update the description if it is 30 characters or less.
+
+    //TODO Add the constructor, Playlist(String, String), that adheres to the above validation rules.
+    //     The order of the fields in the parameter list is the same as the order of fields above i.e. playlistName is
+    //     first, then description.
+    public  Playlist(String playlistName,String description){
+        if (playlistName.length() > 20){
+            this.playlistName = Utilities.truncateString(playlistName,20);//truncate the playlistName to 20 characters if it is over 20
+        }
+        else {
+            this.playlistName = playlistName;//return the playlistName if it is valid
+        }
+        if (description.length() > 30){
+            this.description = Utilities.truncateString(description,30);//truncate the description to 30 characters if it is over 30
+        }
+        else{
+            this.description = description;//return the description if it is valid
+        }
+    }
+
+
 
     //TODO The number of likes a playlist has (int likes)
     //    This should start at 0 and not be part of the constructor
 
 
 
-    //TODO Add the constructor, Playlist(String, String), that adheres to the above validation rules.
-    //     The order of the fields in the parameter list is the same as the order of fields above i.e. playlistName is
-    //     first, then description.
-    public Playlist(String playlistName, String description) {
-        if (playlistName != null && !playlistName.isEmpty() && description != null) {
-            this.playlistName = playlistName;
-            this.description = description;
-            this.songs = new ArrayList<>();
-        }
-    }
-
-
     //TODO Add a getter and setter for each field, that adheres to the above validation rules
     public String getPlaylistName() {
+        return playlistName;
     }
 
     public String getDescription() {
+        return description;
     }
 
-    public void setPlaylistName(String s) {
+    public void setPlaylistName(String playlistName) {
+        if (playlistName != null && playlistName.length() <= 20){
+            this.playlistName = playlistName;
+        }
     }
 
     public void setSongs(ArrayList<Song> songs1) {
     }
 
-    public void setDescription(String s) {
+    public void setDescription(String description) {
+        if (description != null && description.length() <= 30){
+            this.description = description;
+        }
     }
 
     public int getLikes() {
@@ -108,6 +119,8 @@ public class Playlist {
     //     The other parameter is a  Song object - that is being updated
     //     i.e. it holds the new values of  id, name, length, and artist.
     //     If the update was successful, then return true.
+
+    //referred to the code in ShopV6.0
     public boolean updateSong(int indexToUpdate,Song song){
         if (indexToUpdate <0 || indexToUpdate >= songs.size()){
             return false;
@@ -137,7 +150,7 @@ public class Playlist {
     //     If the index is valid, remove the object at that index location.  Return the object you just deleted.
     public Song deleteSong(int indexToDelete){
         if (isValidIndex(indexToDelete)){
-            return songs.remove(indexToDelete);
+            return songs.remove(indexToDelete);//the step "Return the object you just delete" is finished in the Driver class
         }
         else {
             return null;
@@ -182,13 +195,14 @@ public class Playlist {
     //     If the index is valid, retrieve the object and:
     //      set the verified status to the parameter value
     public Song updateVerifiedStatus(int indexToUpdateVerified,boolean verified){
-        if (indexToUpdateVerified < 0 || indexToUpdateVerified >= songs.size()){
+        if (indexToUpdateVerified < 0 || indexToUpdateVerified >= songs.size()){//if the indexToUpdateVerified is in valid,then return null
             return null;
         }
         else {
-            Song song = playlist
-        }
-
+            Song updateSong = songs.get(indexToUpdateVerified);
+            updateSong.isVerified(verified);
+        }//when the indexToUpdateVerified is valid,then do the update.Other job is finished in Driver class
+        return null;//otherwise return null
     }
 
 

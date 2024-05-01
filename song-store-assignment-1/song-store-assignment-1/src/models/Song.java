@@ -71,12 +71,10 @@ public class Song {
     }
 
     public void setName(String string) {
-        if (name.length() <= 20) {
+        if (name != null && name.length() <= 20) {
             this.name = name;
         }
-
     }
-
     public Artist getArtist() {
         return artist;
     }
@@ -99,7 +97,7 @@ public class Song {
         return artist.getArtistName();
     }
 
-    public boolean isVerified() {
+    public boolean isVerified(boolean verified) {
         return artist.isVerified();
     }
 

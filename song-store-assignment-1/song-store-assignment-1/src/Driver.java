@@ -1,9 +1,13 @@
+/**
+ * This class runs the application
+ * Author:Yi Zhang,YunPeng Bai,Chi Ma
+ * Yi Zhang:Completed the test and the first five methods of Songs App
+**/
 import controllers.Playlist;
 import models.Artist;
 import models.Song;
 import utils.ScannerInput;
 import utils.Utilities;
-
 public class Driver {
     //TODO Define an object of the Playlist here.  It should be declared private.
     private Playlist playlist = new Playlist();
@@ -88,7 +92,7 @@ public class Driver {
     //------------------------------------
     // Private methods for CRUD on Song
     //------------------------------------
-    //method addSong which including songName,songId,artistName,length,verified status
+    // 'CRUD' Create  method addSong which including songName,songId,artistName,length,verified status
     private void addSong(){
         String name = ScannerInput.readNextLine("Enter the Song Name: ");
         int songId = ScannerInput.readNextInt("Enter the Song Id: ");
@@ -105,11 +109,13 @@ public class Driver {
             System.out.println("No Song Added");
         }
     }
-    //method listAllSongs which can list all songs the user had typed in in the dialog
+    // 'CRUD' Read method listAllSongs which can list all songs the user had typed in in the dialog
     private void listAllSongs(){
         System.out.println("List of Songs are: ");
         System.out.println(playlist.listAllSongs());
     }
+    // 'CRUD' Update method updateSong can update a song which user choose by the index including the song's name,id,artistName,verifiedStatus and length if the index is valid.
+    // if the index is invalid,it will print"Update Not Successfully"
     private void updateSong(){
         listAllSongs();
         if (playlist.numberOfSongs() > 0){
@@ -119,7 +125,7 @@ public class Driver {
                 int songId = ScannerInput.readNextInt("Enter the Song Id: ");
                 String artistName = ScannerInput.readNextLine("Enter the Artist Name: ");
                 int length = ScannerInput.readNextInt("Enter the length of this song in seconds");
-                char isVerified = ScannerInput.readNextChar("Is this song verified?");
+                char isVerified = ScannerInput.readNextChar("Is this song verified?(True or False)");
                 boolean verified = Utilities.YNtoBoolean(isVerified);
                 Song song = new Song(songId,name,artistName,verified,length);
                 if (playlist.updateSong(indexToUpdate,song)){
@@ -134,6 +140,8 @@ public class Driver {
             }
         }
     }
+    // 'CRUD' Delete method deleteSong can delete a song by user and user can choose which song to delete by the indexToDelete
+    // if teh indexToDelete is valid,return which song delete successfully;otherwise print"Delete Not Successfully"
     private void deleteSong(){
         listAllSongs();
         if (playlist.numberOfSongs()>0){
@@ -145,6 +153,15 @@ public class Driver {
             else {
                 System.out.println("Delete Not Successfully");
             }
+        }
+    }
+    //this method can reset a song's verified status
+    private void setVerifiedStatus(){
+        System.out.println("Please set the verified status of the song you choose");
+        char indexToSet = ScannerInput.readNextChar("Enter the index of the song to set verified status(True or False)");
+        boolean verifiedStatus = Utilities.YNtoBoolean(indexToSet);
+        if (indexToSet <= playlist.numberOfSongs()){
+            System.out.println("The verified status of this song is" + playlist.updateVerifiedStatus(indexToSet,verifiedStatus));
         }
     }
 
