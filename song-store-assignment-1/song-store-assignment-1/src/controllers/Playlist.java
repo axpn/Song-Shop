@@ -166,7 +166,7 @@ public class Playlist {
     //      - returns true if the index is valid for the songs arrayList (in range)
     //      - returns false otherwise
     //      As this method is used inside this class, it should be private
-    private boolean isValidIndex(int index) {
+    private boolean IsValidIndex(int index) {
         return (index >= 0) && (index < songs.size());
     }
 
@@ -417,7 +417,7 @@ public class Playlist {
     //    This method returns the song stored at the index that was passed as a parameter.
     //    However, if the index is not valid, null is returned.
     Song findSong(int indexA) {
-        if (isValidIndex(indexA)) {
+        if (IsValidIndex(indexA)) {
             return songs.get(indexA);
         }
         return null;
@@ -475,7 +475,7 @@ return aaa;
     //TODO Add a method, isValidIndex(int).  The return type is boolean.
     //    This method returns true if the value passed as a parameter is a valid index in the arraylist.
     //    However, if the index is not valid, false is returned.
-public boolean IsValidIndex(int index){
+public boolean isValidIndex(int index){
         return (index>=0)&&(index <songs.size() );
 }
 
