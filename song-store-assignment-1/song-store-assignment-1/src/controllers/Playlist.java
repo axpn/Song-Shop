@@ -463,7 +463,9 @@ public class Playlist {
     //    If there are no songs whose name contains the supplied string, the return string should
     //    have "No songs found for this artist.
 public String searchSongsByArtistName(String artistName){
-
+String aaa="";
+aaa=""+findSongByArtistName(artistName).getName()+"    "+findSongByArtistName(artistName).getArtistName()+"    "+findSongByArtistName(artistName).getSongId();
+return aaa;
 }
 
     //-------------------------
@@ -473,7 +475,7 @@ public String searchSongsByArtistName(String artistName){
     //TODO Add a method, isValidIndex(int).  The return type is boolean.
     //    This method returns true if the value passed as a parameter is a valid index in the arraylist.
     //    However, if the index is not valid, false is returned.
-public boolean isValidIndex(int index){
+public boolean IsValidIndex(int index){
         return (index>=0)&&(index <songs.size() );
 }
 
