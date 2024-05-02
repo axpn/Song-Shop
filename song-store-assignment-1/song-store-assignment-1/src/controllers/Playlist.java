@@ -268,7 +268,7 @@ public class Playlist {
     //TODO Add a method getTotalPlayListLength() which returns a integer value of
     //     the total time (in seconds) if the there are songs in the playlist
     //     -1 if playlist is empty.
-    public double totallength() {
+    public  double totallength() {
         if (!songs.isEmpty()) {
             double totallenth = 0;
             for (Song product : songs) {
@@ -285,7 +285,7 @@ public class Playlist {
     //     -1 if playlist is empty.
 
 
-    public double averageSonglength() {
+    public  double averageSonglength() {
         if (!songs.isEmpty()) {
             double totallength = 0;
             for (int i =0;i<songs.size();i++) {
@@ -432,6 +432,7 @@ public class Playlist {
     //       you could add in validation to ensure that the code is unique when adding a Song.
 
 
+
     //------------------------------
     //  SEARCHING METHODS
     //-------------------------------
@@ -461,7 +462,9 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs".
     //    If there are no songs whose name contains the supplied string, the return string should
     //    have "No songs found for this artist.
+public String searchSongsByArtistName(String artistName){
 
+}
 
     //-------------------------
     // HELPER METHODS

@@ -49,14 +49,15 @@ public class Driver {
                 ---------------------------------------------------------
                    ◎ Report Menu
                 |  9 ) List all Songs by verified artists               |
-                |  10) List all Songs over a given length               |
-                |  11) List all Songs by a given artist                 |
-                |  12) Print the average length of songs in the playlist|
-                |  13) Print the total length of songs in the playlist  |
+                |  10) List all Songs by verified songs                 |
+                |  11) List all Songs by a given length                 |
+                |  12) List all Songs by a given artist                 |
+                |  13) Print the average length of songs in the playlist|
+                |  14) Print the total length of songs in the playlist  |
                 ---------------------------------------------------------
                    ◎ Setting Menu
-                |  14) Save                                             |
-                |  15) Load                                             |
+                |  15) Save                                             |
+                |  16) Load                                             |
                 |   0) Exit                                             | 
                 ---------------------------------------------------------
                 ==>                         
@@ -219,7 +220,28 @@ public class Driver {
         System.out.println("List of Songs are:");
         System.out.println(playlist.listovergivenlength(lenth));
     }//done by byp
-
+private void listOfSongsOfGivenArtist(){
+  System.out.println("list songs of an artist");
+  String artistName = ScannerInput.readNextLine("Please enter artistName");
+  System.out.println("List of songs are:");
+  System.out.println(playlist.listOfSongsOfArtist(artistName));
+}//done by mc
+private void printAverageLength(){
+double averageLength=Playlist.averageSonglength();
+if(averageLength!=-1){
+    System.out.println("The average length is:"+averageLength);
+}else {
+    System.out.println("There are no songs in the playlist");
+}
+}//done by mc
+private void printLengthOfPlaylist(){
+double totalLength=Playlist.totallength();
+if (totalLength!=-1){
+    System.out.println("The total length is:"+totalLength);
+}else {
+    System.out.println("There are no songs in the playlist");
+}
+}//done by mc
 
 
     //---------------------------------
@@ -241,14 +263,14 @@ private void save(){
         }catch(Exception e){
             System.err.println("Error writing to file:"+ e);
         }
-}
+}//done by mc reference to the lecture slides CRUD-XML
 private void load(){
         try{
             playlist.load();
         }catch(Exception e){
             System.err.println("Error reading from file:"+ e);
         }
-}
+}//done by mc reference to the lecture slides CRUD-XML
 
 
 
