@@ -15,7 +15,7 @@ import java.util.Collection;
 
 public class Playlist {
     private String playlistName = ""; // valid length is 20 - default to the first 20 characters of input.
-    private ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
+    private static ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
     private String description = ""; // valid length is 30 - default to the first 30 characters of input.
 
     private int likes = 0;
@@ -268,7 +268,7 @@ public class Playlist {
     //TODO Add a method getTotalPlayListLength() which returns a integer value of
     //     the total time (in seconds) if the there are songs in the playlist
     //     -1 if playlist is empty.
-    public  double totallength() {
+    public  static double totallength() {
         if (!songs.isEmpty()) {
             double totallenth = 0;
             for (Song product : songs) {
@@ -285,7 +285,7 @@ public class Playlist {
     //     -1 if playlist is empty.
 
 
-    public  double averageSonglength() {
+    public static double averageSonglength() {
         if (!songs.isEmpty()) {
             double totallength = 0;
             for (int i =0;i<songs.size();i++) {
