@@ -34,30 +34,30 @@ public class Driver {
     private int mainMenu() {
         return ScannerInput.readNextInt("""
                 ---------------------------------------------------------
-                |                      SONGS APP                        |
+                |                    ♫ SONGS APP ♪                      |
                 ---------------------------------------------------------
-                 Song Menu                                             
-                  1) Add a Song                                         
-                  2) List all Songs
-                  3) Update a Song
-                  4) Delete a Song
+                   ◎ Song Menu                                           
+                |  1) Add a Song                                        |
+                |  2) List all Songs                                    |
+                |  3) Update a Song                                     |
+                |  4) Delete a Song                                     |
                 ---------------------------------------------------------
-                  5) Set verified status of a specific song's artist
-                  6) Find a specific Song (by code)
-                  7) Search for a specific Song (by name)
-                  8) Add a like to playlist
+                |  5) Set verified status of a specific song's artist   |
+                |  6) Find a specific Song (by code)                    |
+                |  7) Search for a specific Song (by name)              |
+                |  8) Add a like to playlist                            |
                 ---------------------------------------------------------
-                 Report Menu
-                  9) List all Songs by verified artists
-                  10) List all Songs over a given length
-                  11) List all Songs by a given artist
-                  12) Print the average length of songs in the playlist
-                  13) Print the total length of songs in the playlist
+                   ◎ Report Menu
+                |  9 ) List all Songs by verified artists               |
+                |  10) List all Songs over a given length               |
+                |  11) List all Songs by a given artist                 |
+                |  12) Print the average length of songs in the playlist|
+                |  13) Print the total length of songs in the playlist  |
                 ---------------------------------------------------------
-                 Setting Menu
-                  14) Save
-                  15) Load
-                  0) Exit 
+                   ◎ Setting Menu
+                |  14) Save                                             |
+                |  15) Load                                             |
+                |   0) Exit                                             | 
                 ---------------------------------------------------------
                 ==>                         
                 """
