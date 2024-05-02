@@ -1,9 +1,15 @@
 package controllers;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import models.Artist;
 import models.Song;
 import utils.Utilities;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -160,7 +166,7 @@ public class Playlist {
     //      - returns true if the index is valid for the songs arrayList (in range)
     //      - returns false otherwise
     //      As this method is used inside this class, it should be private
-    public boolean isValidIndex(int index) {
+    private boolean isValidIndex(int index) {
         return (index >= 0) && (index < songs.size());
     }
 
@@ -464,6 +470,36 @@ public class Playlist {
     //TODO Add a method, isValidIndex(int).  The return type is boolean.
     //    This method returns true if the value passed as a parameter is a valid index in the arraylist.
     //    However, if the index is not valid, false is returned.
+public boolean isValidIndex(int index){
+        return (index>=0)&&(index <songs.size() );
+}
+
+
+
+
+
+
+// I do not know why there is no need to write save and load method in this class
+/*public void save()throws Exception{
+    XStream xstream =new XStream(new DomDriver());
+    ObjectOutputStream out =
+            xstream.createObjectOutputStream(new FileWriter("playlist.xml"));
+    out.writeObject(playlist);
+    out.close();
+}
+public void load()throws Exception{
+        Class<?>[]classes =new Class[]{Playlist.class};
+        XStream xstream =new XStream(new DomDriver());
+        XStream.setupDefaultSecurity(xstream);
+        xstream.allowTypes(classes);
+        ObjectInputStream is =xstream.createObjectInputStream(new FileReader("playlist.xml"));
+        playlist =(ArrayList<Playlist>)is.readObject();
+        is.close();
+}*/
+
+
+
+
 
 
 }

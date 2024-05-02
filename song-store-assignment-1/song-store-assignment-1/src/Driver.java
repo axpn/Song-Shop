@@ -235,4 +235,22 @@ public class Driver {
     //TODO Add a method, save().  The return type is void.
     //    This method uses the XStream component to serialise the playList object and their associated artists to
     //    an XML file.
+private void save(){
+        try{
+            playlist.save();
+        }catch(Exception e){
+            System.err.println("Error writing to file:"+ e);
+        }
+}
+private void load(){
+        try{
+            playlist.load();
+        }catch(Exception e){
+            System.err.println("Error reading from file:"+ e);
+        }
+}
+
+
+
+
 }
