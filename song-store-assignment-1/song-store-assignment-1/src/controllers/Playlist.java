@@ -15,7 +15,9 @@ import java.util.Collection;
 
 public class Playlist {
     private String playlistName = ""; // valid length is 20 - default to the first 20 characters of input.
-    private static ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
+   // private  ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
+
+   private  static  ArrayList<Song> songs = new ArrayList<Song>();//this part of start code can not work because Non-static field 'songs' cannot be referenced from a static context,so I add"static" to make it work.
     private String description = ""; // valid length is 30 - default to the first 30 characters of input.
 
     private int likes = 0;
@@ -90,12 +92,15 @@ public class Playlist {
 
 
     public Collection<Object> listSongs() {
+        
     }
 
     public Collection<Object> listSongsFromVerifiedArtists() {
+
     }
 
     public Collection<Object> listSongsLongerThan(int i) {
+
     }
 
     public Collection<Object> listOfSongsOfArtist(String artistName) {
@@ -295,7 +300,7 @@ public class Playlist {
         } else {
             return -1;
         }
-    }
+    }//in Driver class "double averageLength=Playlist.averageSonglength();"Non-static method 'averageSonglength()' cannot be referenced from a static context,so this method should be static,and also I
 
     //------------------------------------
     // LISTING METHODS - Basic and Advanced
