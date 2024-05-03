@@ -81,10 +81,10 @@ public class Driver {
                 case 10 -> listbyverifiedsongs();//done
                 case 11 -> listSongsOverGivenLength();//done
                 case 12 -> listOfSongsOfGivenArtist();
-                case 13 -> printAverageLength();
-                case 14 -> printLengthOfPlaylist();
-                case 15 -> save();
-                case 16 -> load();
+                case 13 -> printAverageLength();//done
+                case 14 -> printLengthOfPlaylist();//done
+                case 15 -> save();//done
+                case 16 -> load();//done
                 default -> System.out.println("Invalid option entered: " + option);
             }
             ScannerInput.readNextLine("\nPress enter key to continue...");

@@ -98,7 +98,7 @@ public class Playlist {
     public Collection<Object> listSongsLongerThan(int i) {
     }
 
-    public Collection<Object> listOfSongsOfArtist(String taylorSwift) {
+    public Collection<Object> listOfSongsOfArtist(String artistName) {
     }
 
     public int getAverageSongLength() {
@@ -407,7 +407,14 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs in playlist".
     //     If there are songs in the playlist, but none by verified artists, then
     //     "There are no  songs on this playlist by   'artist supplied' " should be returned.
+ public String listOfSongOfArtist(String artistName){
+        if (songs.isEmpty()){
+            return "No songs in playlist";
+        }
 
+
+
+    }
 
     //------------------------------
     //  FINDING METHODS
@@ -430,7 +437,14 @@ public class Playlist {
     //    If no song exists for that code, return null.
     // NOTE: the first song encountered is returned, even if more exist with that code.  For extra credit,
     //       you could add in validation to ensure that the code is unique when adding a Song.
-
+Song findSongCode(int songId){
+        for (Song song: songs){
+            if (song.getSongId() == songId){
+                return song;
+            }
+        }
+return null;
+}//done by mc
 
 
     //------------------------------
@@ -462,11 +476,22 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs".
     //    If there are no songs whose name contains the supplied string, the return string should
     //    have "No songs found for this artist.
-public String searchSongsByArtistName(String artistName){
-String aaa="";
-aaa=""+findSongByArtistName(artistName).getName()+"    "+findSongByArtistName(artistName).getArtistName()+"    "+findSongByArtistName(artistName).getSongId();
-return aaa;
-}
+public String searchSongsByArtistName(String artistName) {
+    if (songs.isEmpty()) {
+        return "No songs in playlist";
+    }
+    boolean found = false;
+    StringBuilder result = new StringBuilder();
+    for (Song song : songs) {
+        if (song.getArtistName().equals(artistName)) {
+            found = true;
+            result.append(song.getSongId()).append(":").append(song.getName());
+        } else {
+            return "No songs for this artist"+artistName;
+        }
+    }
+return result.toString();
+}//done by mc this part of codes is reference to ChatGpt from"boolean found..."to "result.append..."on 5/3/2024 10:36a.m.
 
     //-------------------------
     // HELPER METHODS
@@ -484,12 +509,12 @@ public boolean isValidIndex(int index){
 
 
 
-// I do not know why there is no need to write save and load method in this class
-/*public void save()throws Exception{
+// I do not know why there is no need to write save and load method in this class,but if not writing ,there will be errors in Driver.java
+public void save()throws Exception{
     XStream xstream =new XStream(new DomDriver());
     ObjectOutputStream out =
             xstream.createObjectOutputStream(new FileWriter("playlist.xml"));
-    out.writeObject(playlist);
+    out.writeObject(songs);
     out.close();
 }
 public void load()throws Exception{
@@ -498,9 +523,9 @@ public void load()throws Exception{
         XStream.setupDefaultSecurity(xstream);
         xstream.allowTypes(classes);
         ObjectInputStream is =xstream.createObjectInputStream(new FileReader("playlist.xml"));
-        playlist =(ArrayList<Playlist>)is.readObject();
+        songs =(ArrayList<Song>)is.readObject();
         is.close();
-}*/
+}
 
 
 
