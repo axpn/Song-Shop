@@ -408,12 +408,22 @@ public class Playlist {
     //     If there are songs in the playlist, but none by verified artists, then
     //     "There are no  songs on this playlist by   'artist supplied' " should be returned.
  public String listOfSongOfArtist(String artistName){
+        String listOfsongOfartist="";
         if (songs.isEmpty()){
             return "No songs in playlist";
+        }else {
+            for (int i =0 ;i<=songs.size();i++){
+            if (songs.get(i).getArtist().isVerified()){
+                listOfsongOfartist += i +":"+songs.get(i)+"\n";
+
+            }else{
+                return "There are no songs on this playlist by"+artistName;
+            }}
+
         }
 
 
-
+return listOfsongOfartist;
     }
 
     //------------------------------
