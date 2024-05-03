@@ -271,8 +271,8 @@ public class Playlist {
     public  static double totallength() {
         if (!songs.isEmpty()) {
             double totallenth = 0;
-            for (Song product : songs) {
-                totallenth += product.getLength();
+            for (Song song : songs) {
+                totallenth += song.getLength();
             }
             return totallenth;
         } else {

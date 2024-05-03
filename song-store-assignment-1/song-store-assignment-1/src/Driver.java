@@ -2,7 +2,7 @@
  * This class runs the application
  * Author:Yi Zhang,YunPeng Bai,Chi Ma
  * Yi Zhang:Completed the test and the first five methods of Songs App
- * Chi MA: I changed the Starter Code in Playlist.java line18 add "static" to make codes work reference to AI Qwen developed by Alibaba Cloud.
+ * Chi MA:Completed the last five methods of Songs App.Notes: I changed the Starter Code in Playlist.java line18 add "static" to make codes work reference to AI Qwen developed by Alibaba Cloud.And some of the codes are reference to ai(adjust them but not copy directly) .I have declared them after the codes.
 **/
 import controllers.Playlist;
 import models.Artist;
