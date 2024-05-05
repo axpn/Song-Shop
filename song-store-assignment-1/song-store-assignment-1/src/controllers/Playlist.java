@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 public class Playlist {
     private String playlistName = ""; // valid length is 20 - default to the first 20 characters of input.
