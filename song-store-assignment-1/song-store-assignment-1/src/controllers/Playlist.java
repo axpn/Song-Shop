@@ -452,7 +452,7 @@ return listOfsongOfartist;
     //    If no song exists for that code, return null.
     // NOTE: the first song encountered is returned, even if more exist with that code.  For extra credit,
     //       you could add in validation to ensure that the code is unique when adding a Song.
-Song findSongCode(int songId){
+Song findSongByCode(int songId){
         for (Song song: songs){
             if (song.getSongId() == songId){
                 return song;
