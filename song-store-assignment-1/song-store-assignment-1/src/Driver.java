@@ -3,8 +3,8 @@
  * Author:Yi Zhang,YunPeng Bai,Chi Ma
  * Yi Zhang:Completed the test and the first five methods of Songs App
  * Yunpeng Bai::Completed six methods from case6-11 and methods related in the Playlist.
- * Chi MA:Completed the last five methods of Songs App and redesigned the app menu .Notes: I changed the Starter Code in Playlist.java "Arraylist<Song>" add "static" to make codes work reference to AI Qwen developed by Alibaba Cloud.And some of the codes are reference to ai(adjust them but not copy directly) .I have declared  them in detail after the codes.
- * Problems:We don't know why IDEA says that the package "models" and "utils" don't exist.And the program cannot run.
+ * Chi MA:Completed the last five methods of Songs App and redesigned the app menu .Notes: I changed the Starter Code in Playlist.java "Arraylist<Song>" add "static" to make codes work reference to AI Qwen developed by Alibaba Cloud.And some of the codes are reference to ai( I adjust them but not copy directly) .I have declared  them in detail in the annotations after the codes.
+ * Problems:We don't know why IDEA says that the packages "models" and "utils" don't exist.And the program cannot run.
 **/
 import controllers.Playlist;
 import models.Artist;
