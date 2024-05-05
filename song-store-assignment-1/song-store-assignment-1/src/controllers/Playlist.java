@@ -96,10 +96,7 @@ public class Playlist {
         
     }
 
-    public Collection<Object> listSongsFromVerifiedArtists() {
-        return  null;
 
-    }
 
     public Collection<Object> listSongsLongerThan(int i) {
         return null;
@@ -184,14 +181,14 @@ public class Playlist {
     //       - if the supplied index is valid, the Song object at that location is returned
     //       - if the supplied index is invalid, null is returned
     //
-    public Song findsongbyid(int indextofind) {
+    public Song findSongById(int indextofind) {
         if (songs.isEmpty()) {
             return null;
         } else {
             Song printfoundsong = null;
             int idtobedound;
             for (Song song : songs) {
-                if (song.getSongId() == findsongbyid(indextofind).getSongId())
+                if (song.getSongId() == findSongById(indextofind).getSongId())
                     printfoundsong = song;
             }
             return printfoundsong;
@@ -204,7 +201,7 @@ public class Playlist {
     //       - if the supplied string (songName) does not match a song name in the songs list, null is returned
     //       NOTE - if that name appears more than once, it is sufficient to return the first occurence.
 
-    public Song findsongbyname(String nametofind) {
+    public Song findSongByName(String nametofind) {
         if (songs.isEmpty()) {
             return null;
         } else {
@@ -277,9 +274,9 @@ public class Playlist {
     //TODO Add a method getTotalPlayListLength() which returns a integer value of
     //     the total time (in seconds) if the there are songs in the playlist
     //     -1 if playlist is empty.
-    public  static double totallength() {
+    public  static int getTotalPlaylistLength() {
         if (!songs.isEmpty()) {
-            double totallenth = 0;
+            int totallenth = 0;
             for (Song song : songs) {
                 totallenth += song.getLength();
             }
@@ -294,9 +291,9 @@ public class Playlist {
     //     -1 if playlist is empty.
 
 
-    public static double averageSonglength() {
+    public static int getAverageSongLength() {
         if (!songs.isEmpty()) {
-            double totallength = 0;
+            int totallength = 0;
             for (int i =0;i<songs.size();i++) {
                 totallength += songs.get(i).getLength();
             }
@@ -304,7 +301,7 @@ public class Playlist {
         } else {
             return -1;
         }
-    }//in Driver class "double averageLength=Playlist.averageSonglength();"Non-static method 'averageSonglength()' cannot be referenced from a static context,so this method should be static,and also I
+    }//in Driver class "int averageLength=Playlist.getAverageSongLength();"Non-static method 'getAverageSongLength()' cannot be referenced from a static context,so this method should be static,and also I
 
     //------------------------------------
     // LISTING METHODS - Basic and Advanced
@@ -328,7 +325,7 @@ public class Playlist {
         }
     }
 
-    public String listbyverifiedsongs() {
+    public String listByVerifiedSongs() {
         if (songs.isEmpty()) {
             return "No songs in playlist";
         } else {
@@ -365,7 +362,7 @@ public class Playlist {
     //    If there are songs in the playlist but none with a verified artist, the return string should
     //    have "There are no songs from verified artists on this playlist".
 
-    public String listbyverifiedartist() {
+    public String listSongsFromVerifiedArtists() {
         if (songs.isEmpty()) {
             return "No songs in playlist";
         } else {
@@ -390,7 +387,7 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs in playlist.".
     //    If there are songs in the playlist, but none with songs over (or equal to) this length, then
     //     "There are no songs on this playlist longer than   'length supplied' " should be returned.
-    public  String listovergivenlength(double lenth){
+    public  String listSongsLongerThan(double lenth){
         if (songs.isEmpty()) {
             return "No songs";
         } else {
@@ -480,7 +477,7 @@ return null;
     //    have "No songs found".
     public String searchSongsByName(String name){
         String aaa ="";
-        aaa = ""+findsongbyname(name).getName()+"    "+findsongbyname(name).getArtistName()+"        "+findsongbyname(name).getSongId();
+        aaa = ""+findSongByName(name).getName()+"    "+findSongByName(name).getArtistName()+"        "+findSongByName(name).getSongId();
         return aaa;
 
     }

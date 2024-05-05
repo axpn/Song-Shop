@@ -182,7 +182,7 @@ public class Driver {
 
         if (playlist.numberOfSongs()>0){
             int id = ScannerInput.readNextInt("Please enter the id of the song you choose");
-            System.out.println(playlist.findsongbyid(id));
+            System.out.println(playlist.findSongById(id));
 
 
         }else {
@@ -193,7 +193,7 @@ public class Driver {
         System.out.println("find a song by name");
         if (playlist.numberOfSongs()>0){
             String name =ScannerInput.readNextLine("Please enter the name of the song you choose");
-            System.out.println(playlist.findsongbyname(name));
+            System.out.println(playlist.findSongByName(name));
 
         }else {
             System.out.println("no songs");
@@ -211,19 +211,19 @@ public class Driver {
 
     private  void  listSongsByVerifiedArtists(){
         System.out.println("List of Songs are:");
-        System.out.println(playlist.listbyverifiedartist());
+        System.out.println(playlist.listSongsFromVerifiedArtists());
 
     }// done by byp
     private void listbyverifiedsongs(){
         System.out.println("List of Songs are:");
-        System.out.println(playlist.listbyverifiedsongs());
+        System.out.println(playlist.listByVerifiedSongs());
     }//add to have more score
 
     private void listSongsOverGivenLength(){
         System.out.println("list songs over a length");
         double lenth = ScannerInput.readNextDouble("Please enter length");
         System.out.println("List of Songs are:");
-        System.out.println(playlist.listovergivenlength(lenth));
+        System.out.println(playlist.listSongsLongerThan(lenth));
     }//done by byp
 private void listOfSongsOfGivenArtist(){
   System.out.println("list songs of an artist");
@@ -232,7 +232,7 @@ private void listOfSongsOfGivenArtist(){
   System.out.println(playlist.listOfSongsOfArtist(artistName));
 }//done by mc
 private void printAverageLength(){
-double averageLength=Playlist.averageSonglength();
+int averageLength=Playlist.getAverageSongLength();
 if(averageLength!=-1){
     System.out.println("The average length is:"+averageLength);
 }else {
@@ -240,7 +240,7 @@ if(averageLength!=-1){
 }
 }//done by mc
 private void printLengthOfPlaylist(){
-double totalLength=Playlist.totallength();
+int totalLength=Playlist.getTotalPlaylistLength();
 if (totalLength!=-1){
     System.out.println("The total length is:"+totalLength);
 }else {
