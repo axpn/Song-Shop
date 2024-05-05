@@ -92,22 +92,26 @@ public class Playlist {
 
 
     public Collection<Object> listSongs() {
+        return null;
         
     }
 
     public Collection<Object> listSongsFromVerifiedArtists() {
+        return  null;
 
     }
 
     public Collection<Object> listSongsLongerThan(int i) {
+        return null;
 
     }
 
     public Collection<Object> listOfSongsOfArtist(String artistName) {
+        return null;
+
     }
 
-    public int getAverageSongLength() {
-    }
+
     //-------------------------------------
     //  ARRAYLIST CRUD
     //-------------------------------------
