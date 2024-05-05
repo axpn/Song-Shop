@@ -121,7 +121,7 @@ public class Driver {
     // 'CRUD' Read method listAllSongs which can list all songs the user had typed in in the dialog
     private void listAllSongs(){
         System.out.println("List of Songs are: ");
-        System.out.println(playlist.listAllSongs());
+        System.out.println(playlist.listSongs());
     }
     // 'CRUD' Update method updateSong can update a song which user choose by the index including the song's name,id,artistName,verifiedStatus and length if the index is valid.
     // if the index is invalid,it will print"Update Not Successfully"

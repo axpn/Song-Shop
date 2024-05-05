@@ -91,22 +91,13 @@ public class Playlist {
     }
 
 
-    public Collection<Object> listSongs() {
-        return null;
-        
-    }
 
 
 
-    public Collection<Object> listSongsLongerThan(int i) {
-        return null;
 
-    }
 
-    public Collection<Object> listOfSongsOfArtist(String artistName) {
-        return null;
 
-    }
+
 
 
     //-------------------------------------
@@ -313,7 +304,7 @@ public class Playlist {
     //        0: song 1 Details
     //        1: song 2 Details
     //    If there are no songs stored in the array list, return a string that contains "No songs in playlist.".
-    public String listAllSongs() {
+    public String listSongs() {
         if (songs.isEmpty()) {
             return "No songs in playlist";
         } else {
@@ -323,7 +314,7 @@ public class Playlist {
             }
             return listOfSongs;
         }
-    }
+    }//This method should be named listSongs according to PlaylistTest.java
 
     public String listByVerifiedSongs() {
         if (songs.isEmpty()) {
@@ -413,7 +404,7 @@ public class Playlist {
     //    If there are no songs stored in the array list, return a string that contains "No songs in playlist".
     //     If there are songs in the playlist, but none by verified artists, then
     //     "There are no  songs on this playlist by   'artist supplied' " should be returned.
- public String listOfSongOfArtist(String artistName){
+ public String listOfSongsOfArtist(String artistName){
         String listOfsongOfartist="";
         if (songs.isEmpty()){
             return "No songs in playlist";
