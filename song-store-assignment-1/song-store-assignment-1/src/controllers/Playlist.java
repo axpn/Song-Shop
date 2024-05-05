@@ -17,7 +17,7 @@ public class Playlist {
     private String playlistName = ""; // valid length is 20 - default to the first 20 characters of input.
    // private  ArrayList<Song> songs = new ArrayList<Song>();  // should start empty
 
-   private  static  ArrayList<Song> songs = new ArrayList<Song>();//this part of start code can not work because Non-static field 'songs' cannot be referenced from a static context,so I add"static" to make it work.
+   private  static  ArrayList<Song> songs = new ArrayList<Song>();//*this part of start code can not work because Non-static field 'songs' cannot be referenced from a static context,so I add"static" to make it work.
     private String description = ""; // valid length is 30 - default to the first 30 characters of input.
 
     private int likes = 0;
@@ -516,7 +516,7 @@ public boolean isValidIndex(int index){
 
 
 
-// I do not know why there is no need to write save and load method in this class,but if not writing ,there will be errors in Driver.java
+// I do not know why there is no need to write save and load method in this class,but if not writing ,there will be errors in Driver.java while running save and load method.
 public void save()throws Exception{
     XStream xstream =new XStream(new DomDriver());
     ObjectOutputStream out =
@@ -534,6 +534,14 @@ public void load()throws Exception{
         is.close();
 }
 
+
+public String toString(){
+        return "Playlist{" +
+                "playlistName='" + playlistName + '\'' +
+                ", description='" + description + '\'' +
+                ", songs=" + songs +
+                '}';
+}//This method is not in the to do list,but in PlaylistTest.java,it is needed to test the toString method.
 
 
 
